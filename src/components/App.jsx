@@ -3,7 +3,6 @@ import shortid from 'shortid';
 import ContactForm from './Contacts/ContactForm';
 import ContactList from './Contacts/ContactList';
 import Filter from './Filter/Filter';
-import styles from '../index.css';
 
 class App extends Component {
   state = {
