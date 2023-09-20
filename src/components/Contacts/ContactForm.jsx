@@ -34,14 +34,15 @@ class ContactForm extends Component {
         <label>
           Name:
           <input
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-            pattern="^[a-zA-Zа-яА-Я]+([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*$"
-            title="Name may contain only letters, apostrophe, dash and spaces."
-            required
-          />
+  type="text"
+  name="name"
+  value={name}
+  onChange={this.handleChange}
+  pattern="^[a-zA-Zа-яА-Я]+([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*$"
+  title="Name may contain only letters, apostrophe, dash and spaces."
+  required
+/>
+
         </label>
         <label>
           Phone Number:
