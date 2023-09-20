@@ -42,7 +42,7 @@ class ContactForm extends Component {
   pattern="^[a-zA-Zа-яА-Я]+([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*$"
   title="Name may contain only letters, apostrophe, dash and spaces."
   required
-  autocomplete="on"
+  autocomplete="off"
 />
 
         </label>
@@ -50,13 +50,16 @@ class ContactForm extends Component {
           Phone Number:
           <input
   type="text"
+  id="number"
   name="number"
   value={number}
   onChange={this.handleChange}
   pattern="[0-9\-]+"
   title="Phone number must be digits"
   required
+  autocomplete="off"
 />
+
 
         </label>
         <button type="submit">Add Contact</button>
