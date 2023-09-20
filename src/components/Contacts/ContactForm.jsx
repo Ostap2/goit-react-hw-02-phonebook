@@ -51,7 +51,7 @@ class ContactForm extends Component {
   name="number"
   value={number}
   onChange={this.handleChange}
-  pattern="[0-9]+"
+  pattern="[0-9-]+"
   title="Phone number must be digits"
   required
 />
