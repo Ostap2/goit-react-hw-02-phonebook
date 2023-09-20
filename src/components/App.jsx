@@ -1,3 +1,4 @@
+// App.js
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import ContactForm from './Contacts/ContactForm';
@@ -64,6 +65,12 @@ class App extends Component {
     }));
   };
 
+  addContact = (newContact) => {
+    this.setState((prevState) => ({
+      contacts: [newContact, ...prevState.contacts],
+    }));
+  };
+
   render() {
     const { name, number, filter } = this.state;
     const filteredContacts = this.filterContacts();
@@ -76,6 +83,7 @@ class App extends Component {
           number={number}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          onSubmit={this.addContact}
         />
 
         <h2>Contacts</h2>
