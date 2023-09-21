@@ -22,29 +22,31 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, number } = this.state;
-
+  
     if (name === '' || number === '') {
       alert('Please fill in all fields.');
       return;
     }
-
+  
     if (this.state.contacts.some((contact) => contact.name === name)) {
       alert(`${name} is already in contacts.`);
       return;
     }
-
+  
     const contact = {
-      id: shortid.generate(),
+      id: shortid.generate(), // Генеруємо унікальний id для контакта
       name,
       number,
     };
-
+  
     this.setState((prevState) => ({
       contacts: [contact, ...prevState.contacts],
       name: '',
       number: '',
     }));
   };
+  
+  
 
   handleFilterChange = (e) => {
     this.setState({ filter: e.target.value });
@@ -56,16 +58,24 @@ class App extends Component {
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
-
-  deleteContact = (contactId) => {
+  deleteContact = (contactIndex) => {
     this.setState((prevState) => ({
-      contacts: prevState.contacts.filter(
-        (contact) => contact.id !== contactId
-      ),
+      contacts: prevState.contacts.filter((_, index) => index !== contactIndex),
     }));
   };
-
+  
+  
   addContact = (newContact) => {
+
+    const isDuplicateName = this.state.contacts.some(
+      (contact) => contact.name === newContact.name
+    );
+
+    if (isDuplicateName) {
+      console.log('Це імя вже існує');
+      return; 
+    }
+
     this.setState((prevState) => ({
       contacts: [newContact, ...prevState.contacts],
     }));

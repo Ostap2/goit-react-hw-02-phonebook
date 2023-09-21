@@ -3,10 +3,10 @@ import React from 'react';
 function ContactList({ contacts, deleteContact }) {
   return (
     <ul>
-      {contacts.map((contact) => (
-        <li key={contact.id}>
+      {contacts.map((contact, index) => (
+        <li key={index}>
           {contact.name}: {contact.number}
-          <button onClick={() => deleteContact(contact.id)}>Delete</button>
+          <button onClick={() => deleteContact(index)}>Delete</button>
         </li>
       ))}
     </ul>
